@@ -40,3 +40,15 @@ Windows 上也可以用 `py -3.11` 代替 `python`。
 这里的采样定理针对最高频率为 `fmax` 的实值低通信号，避免混叠的条件是 `Fs > 2fmax`。采样率 `Fs` 决定无混叠的频率范围；观测时间 `T` 决定常规频谱的名义频率分辨尺度 `1/T`。
 
 ![拍频混叠示例](nyquist_plots/05_radar_beat_alias.png)
+
+## FMCW 和 DDMA 虚构样例
+
+本仓库仅包含独立构造的教学配置，不代表任何实际设备。
+
+- [虚构配置](configs/radar_cfg_example.h)
+- [FMCW 脚本](simulate_highspeed_wave.py)与[学习指南](HIGHSPEED_GUIDE.md)
+- [DDMA 脚本](simulate_ddma.py)与[学习指南](DDMA_GUIDE.md)
+
+DDMA 的二维 FFT 保持原始顺序，图中使用 Range Bin / Doppler Bin。运行方式为 python simulate_highspeed_wave.py 和 python simulate_ddma.py。
+
+真实配置应放在仓库外，通过 --config 指定；脚本拒绝将外部配置生成的结果写入本仓库。公开的配置、说明、报告和配图均使用虚构参数。

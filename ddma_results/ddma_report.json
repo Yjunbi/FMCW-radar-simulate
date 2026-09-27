@@ -1,0 +1,148 @@
+{
+  "model": "4 simultaneous TX, 1 equivalent RX; continuous per-chirp phase ramps",
+  "fft_output_order": "natural, unshifted",
+  "heatmap_axes": {
+    "x": "Range Bin",
+    "y": "Doppler Bin"
+  },
+  "phase_levels_assumed": 256,
+  "code_sign": -1,
+  "code_period_chirps": 16,
+  "actual_chirps_assumed": 256,
+  "doppler_fft": 256,
+  "channels": [
+    {
+      "tx": 1,
+      "phase_start_code": 16,
+      "phase_step_code": 0,
+      "phase_start_deg": 22.5,
+      "phase_step_deg": 0.0,
+      "effective_offset_cycles_per_chirp": 0.0,
+      "doppler_shift_bins": 0,
+      "doppler_shift_bins_modulo_fft": 0,
+      "equivalent_velocity_shift_m_s": 0.0
+    },
+    {
+      "tx": 2,
+      "phase_start_code": 80,
+      "phase_step_code": 48,
+      "phase_start_deg": 112.5,
+      "phase_step_deg": 67.5,
+      "effective_offset_cycles_per_chirp": -0.1875,
+      "doppler_shift_bins": -48,
+      "doppler_shift_bins_modulo_fft": 208,
+      "equivalent_velocity_shift_m_s": -9.350047967763668
+    },
+    {
+      "tx": 3,
+      "phase_start_code": 160,
+      "phase_step_code": 112,
+      "phase_start_deg": 225.0,
+      "phase_step_deg": 157.5,
+      "effective_offset_cycles_per_chirp": -0.4375,
+      "doppler_shift_bins": -112,
+      "doppler_shift_bins_modulo_fft": 144,
+      "equivalent_velocity_shift_m_s": -21.816778591448557
+    },
+    {
+      "tx": 4,
+      "phase_start_code": 224,
+      "phase_step_code": 208,
+      "phase_start_deg": 315.0,
+      "phase_step_deg": 292.5,
+      "effective_offset_cycles_per_chirp": 0.1875,
+      "doppler_shift_bins": 48,
+      "doppler_shift_bins_modulo_fft": 48,
+      "equivalent_velocity_shift_m_s": 9.350047967763668
+    }
+  ],
+  "rotational_symmetries_bins": [
+    0
+  ],
+  "coherent_time_ms": 12.799999999999999,
+  "nominal_velocity_resolution_m_s": 0.19479266599507641,
+  "full_PRF_velocity_half_range_m_s": 24.93346124736978,
+  "detection_method": "minimum power across four aligned code locations, relative threshold, peak suppression",
+  "uses_target_truth_in_detector": false,
+  "detections": [
+    {
+      "detection": 1,
+      "range_bin": 25,
+      "doppler_bin": 194,
+      "range_m": 19.517738151041662,
+      "velocity_m_s": -12.077145291694736,
+      "relative_score_db": 0.0
+    },
+    {
+      "detection": 2,
+      "range_bin": 58,
+      "doppler_bin": 92,
+      "range_m": 45.28115251041666,
+      "velocity_m_s": 17.920925271547027,
+      "relative_score_db": -1.2947221474189694
+    },
+    {
+      "detection": 3,
+      "range_bin": 91,
+      "doppler_bin": 103,
+      "range_m": 71.04456686979165,
+      "velocity_m_s": 20.063644597492868,
+      "relative_score_db": -3.73161199831503
+    }
+  ],
+  "predictions_for_validation_only": [
+    {
+      "range_at_first_adc_m": 20,
+      "range_at_cpi_center_m": 19.923347,
+      "physical_velocity_m_s": -12,
+      "predicted_apparent_range_m": 19.82715959497117,
+      "predicted_aliased_velocity_m_s": -11.999726169418937,
+      "range_migration_m": -0.153
+    },
+    {
+      "range_at_first_adc_m": 45,
+      "range_at_cpi_center_m": 45.1149795,
+      "physical_velocity_m_s": 18,
+      "predicted_apparent_range_m": 45.25925758245456,
+      "predicted_aliased_velocity_m_s": 17.999211863390546,
+      "range_migration_m": 0.22949999999999998
+    },
+    {
+      "range_at_first_adc_m": 70,
+      "range_at_cpi_center_m": 70.4471425,
+      "physical_velocity_m_s": 70,
+      "predicted_apparent_range_m": 71.00821210190772,
+      "predicted_aliased_velocity_m_s": 20.128536711791757,
+      "range_migration_m": 0.8925
+    }
+  ],
+  "numerical_checks": {
+    "modulation_vs_cyclic_shift_relative_error": 4.1684931842090235e-16,
+    "stationary": {
+      "range_error_m": 0.1838141718749995,
+      "velocity_error_m_s": 0.0,
+      "recovered_complex_channel_relative_error": 6.877203590757589e-07
+    },
+    "moving": {
+      "range_error_m": 0.337637171296727,
+      "velocity_error_m_s": 0.07836149582956864,
+      "recovered_complex_channel_relative_error": 1.3608393718494762e-06
+    },
+    "aliased_speed": {
+      "range_error_m": 0.3693787686086125,
+      "velocity_error_m_s": 0.0666398739733367,
+      "recovered_complex_channel_relative_error": 1.1080032697667358e-06
+    }
+  },
+  "limitations": [
+    "The bundled configuration and all displayed example parameters are entirely synthetic.",
+    "Four simultaneous TX and phase code units are teaching assumptions.",
+    "Sparse resolvable replicas are required; same-range multi-target collisions can create ambiguity.",
+    "Alignment alone does not isolate the full TX time series; complex channels are read only at detections.",
+    "The code pattern resolves TX-label ambiguity, not aliases beyond the original PRF interval.",
+    "No DOA, actual antenna geometry, RF filters, fixed-point arithmetic or hardware CFAR is emulated."
+  ],
+  "sources": [
+    "https://www.mathworks.com/help/radar/ug/simulate-an-automotive-4d-imaging-mimo-radar.html"
+  ]
+}
